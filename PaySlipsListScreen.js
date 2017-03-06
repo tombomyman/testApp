@@ -17,11 +17,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#52c9e2',
+    marginTop: 60,
+    paddingTop: 80,
   },
   itemsListTitle: {
     color: '#ffffff',
     fontSize: 20,
-    margin: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 15,
   },
   itemsList: {
     flex: 1,

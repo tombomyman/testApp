@@ -12,10 +12,9 @@ import LinearGradient from 'react-native-linear-gradient';
 const styles = StyleSheet.create({  
   item: {
     flex: 1,
-    height: 50,
+    height: 70,
     backgroundColor: '#472f4c',
     alignSelf: 'stretch',
-    padding: 10,
   },
   item0: {
     backgroundColor: '#45aad4',    
@@ -31,8 +30,18 @@ const styles = StyleSheet.create({
   },
   item3: {
     backgroundColor: '#554365',
-    height: 60,
   },
+
+  itemWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  itemWrap0: {    
+  },
+
   itemText: {
     color: '#ffffff',
     fontSize: 10,
@@ -47,8 +56,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   itemText3: {
-    fontSize: 11,
+    fontSize: 12,
   },
+
   itemTitle: {
     fontSize: 12,
     color: '#ffffff',
@@ -63,8 +73,30 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   itemTitle3: {
-    fontSize: 14,
+    fontSize: 16,
   },
+
+  itemIcon: {
+    width: 30,
+    height: 30,
+    alignSelf: 'center',
+  },
+  itemIcon0: {
+    width: 55,
+    height: 55
+  },
+  itemIcon1: {
+    width: 50,
+    height: 50
+  },
+  itemIcon2: {
+    width: 40,
+    height: 40
+  },
+  itemIcon3: {
+    width: 35,
+    height: 35
+  }
 });
 
 /**/
@@ -78,18 +110,10 @@ export default class Row extends Component {
 
   getItemGradient(rowID) {
     var itemGradients = {
-        item0: ['#378db1', '#45aad4', '#45aad4'],
-        item1: ['#2e618b', '#3a76a7', '#3a76a7'],
-        item2: ['#4a436f', '#5b5588', '#5b5588'],
-        item3: ['#463754', '#554365', '#554365'],
-        itemBase: ['#3a253f', '#472f4c', '#472f4c'],
+        itemBase: ['#00000040', '#00000010', '#00000000', '#00000000'],
       };
 
-    if (rowID < 4) {
-      return  itemGradients['item' + rowID];
-    } else {
-      return itemGradients.itemBase;
-    }
+    return itemGradients.itemBase;
   }
 
   gotoPayslipScreen() {
@@ -103,10 +127,14 @@ export default class Row extends Component {
     return (
       <TouchableHighlight onPress={this.gotoPayslipScreen.bind(this)}>
         <LinearGradient colors={this.getItemGradient(this.props.rowID)} style={[styles.item, styles['item' + this.props.rowID]]}>
-          
-            <View>
+          <View style={[styles.itemWrap, styles['itemWrap' + this.props.rowID]]}>
+            <View style={{width:60}}>
+              <Image source={require('./img/payCheck.png')} style={[styles.itemIcon, styles['itemIcon' + this.props.rowID]]} />
+            </View>
+            <View style={{paddingLeft: 20}}>
               <Text style={[styles.itemTitle, styles['itemTitle' + this.props.rowID]]}>{this.props.data.registered}</Text>
             </View>
+          </View>
         </LinearGradient>
       </TouchableHighlight>
     );

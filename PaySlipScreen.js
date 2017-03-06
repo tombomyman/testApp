@@ -18,16 +18,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#52c9e2',
+    marginTop: 60
   },
   itemsListTitle: {
     color: '#ffffff',
     fontSize: 20,
     margin: 10,
   },
-  toolbar: {
+  /*toolbar: {
     height: 56,
     backgroundColor: '#4883da',
-  },
+  },*/
 });
 
 export default class PaySlipScreen extends Component {
@@ -39,13 +40,13 @@ export default class PaySlipScreen extends Component {
   render() {
     return (       
         <View style={styles.container}>
-          <ToolbarAndroid
+          {/*ToolbarAndroid
             title={this.props.data.name.first}
             style={styles.toolbar}
             titleColor='white'
             navIcon={require('./img/ic_arrow_back_white_24dp.png')}
             onIconClicked={() => this.props.navigator.pop()}
-          />
+          />*/}
           <Text style={styles.itemsListTitle}>{this.props.data.name.first}</Text>
 
           <TouchableHighlight onPress={this.props.onBack}>
