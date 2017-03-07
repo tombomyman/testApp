@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   itemsList: {
     flex: 1,
+    backgroundColor: '#472f4c',
   },
 });
 
